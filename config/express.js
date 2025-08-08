@@ -40,9 +40,10 @@ module.exports = function () {
 	app.use(express.json())
 	app.use(methodOverride())
 
-	// Routes definition
-	router.use('/api/v1', require('../app/routes/message.server.routes'))
-	app.use(router)
+	/*	// Routes definition
+        router.use('/api/v1', require('../app/routes/message.server.routes'))
+        app.use(router)*/
+	app.use('/api/v1', require('../app/routes/message.server.routes'));
 
 	// Assume 'not found' in the error msgs is a 404.
 	app.use(function (err, req, res, next) {

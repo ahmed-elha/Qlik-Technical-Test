@@ -4,7 +4,12 @@ const config = require('./config/config')
 const app = require('./config/express')()
 
 // Start the app by listening on <port>
+/*
 app.listen(config.port)
+*/
+app.listen(config.port, () => {
+    console.log(`Server listening on port ${config.port}`);
+});
 
 process.on('SIGINT', function () {
     console.log("Gracefully shutting down from SIGINT (Ctrl-C)")
