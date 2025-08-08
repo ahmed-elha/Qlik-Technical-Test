@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palindrome-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: palindrome
+  template:
+    metadata:
+      labels:
+        app: palindrome
+    spec:
+      containers:
+        - name: palindrome
+          image: ${{ secrets.DOCKERHUB_USERNAME }}/palindrome-service:latest
+          ports:
+            - containerPort: 9091
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 9091
+            initialDelaySeconds: 5
+            periodSeconds: 10
