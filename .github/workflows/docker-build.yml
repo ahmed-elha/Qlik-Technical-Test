@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - feat/create-workflow
+      - feat/**
   workflow_dispatch:
 
 env:
