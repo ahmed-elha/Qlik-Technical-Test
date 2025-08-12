@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: y${{ secrets.DOCKERHUB_USERNAME }}/palindrome-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 9091
+
+resources: {}

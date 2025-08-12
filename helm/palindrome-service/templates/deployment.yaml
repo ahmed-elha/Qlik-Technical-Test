@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palindrome-service
+  namespace: plndrm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: palindrome
+  template:
+    metadata:
+      labels:
+        app: palindrome
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: palindrome
+          image: ahmedelha59/palindrome:latest
+          ports:
+            - containerPort: 9091
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 9091
+            initialDelaySeconds: 5
+            periodSeconds: 10
