@@ -6,8 +6,8 @@
 Ce projet est une API **Node.js** qui vérifie si un mot ou une phrase est un **palindrome**.  
 
 Fonctionnalités :  
-- `GET /health` → Vérifie si le service est opérationnel  
-- `POST /palindrome` → Envoie la chaine de caractères
+- `GET ` → Vérifie si le service est opérationnel  
+- `POST ` → Envoie la chaine de caractères
 
 Conçu pour être exécuté :  
 - **En local** avec Docker  
